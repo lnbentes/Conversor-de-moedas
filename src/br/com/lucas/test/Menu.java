@@ -11,17 +11,25 @@ public class Menu {
         Scanner entrada = new Scanner(System.in);
         Moedas moedas = new Moedas();
 
-        String continuar;
+        String continuar, valor;
 
         do{
             System.out.println("####################################################");
             System.out.println("Conversor de moedas:");
             System.out.println("Escolha a moeda entrada: real, euro, dolar ou iene");
             moedas.setOpcaoA(entrada.next());
+
+
             System.out.println("Escolha a moeda saida: real, euro, dolar ou iene");
             moedas.setOpcaoB(entrada.next());
+
             System.out.println("Quanto deseja converter?");
-            moedas.setValotDeEntrada(entrada.nextDouble());
+            do {
+                System.out.print("Valor numerico: ");
+                valor = entrada.next();
+            }while( ! moedas.testLogico(valor));
+            moedas.setValotDeEntrada(valor);
+
             System.out.println("####################################################");
 
             System.out.print(moedas.getValotDeEntrada() + " " + moedas.getOpcaoA() + " = ");

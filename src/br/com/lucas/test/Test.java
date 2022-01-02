@@ -9,7 +9,7 @@ public class Test {
 
         moedas.setOpcaoA("real");
         moedas.setOpcaoB("dolar");
-        moedas.setValotDeEntrada(250.55);
+        moedas.setValotDeEntrada("250.55");
 
         moedas.resultado();
 

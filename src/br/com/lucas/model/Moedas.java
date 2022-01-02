@@ -1,5 +1,6 @@
 package br.com.lucas.model;
 
+import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -115,8 +116,17 @@ public class Moedas {
         this.opcaoB = opcaoB;
     }
 
-    public void setValotDeEntrada(double valotDeEntrada) {
-        this.valotDeEntrada = valotDeEntrada;
+    public void setValotDeEntrada(String valotDeEntrada) {
+        this.valotDeEntrada = Double.parseDouble(valotDeEntrada);
+    }
+
+    public boolean testLogico(String entrada){
+        try{
+           double teste = Double.parseDouble(entrada);
+           return true;
+        }catch (NumberFormatException e){
+            return false;
+        }
     }
 
 }
