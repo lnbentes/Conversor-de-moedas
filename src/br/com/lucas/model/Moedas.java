@@ -21,6 +21,7 @@ public class Moedas {
         this.iene = "iene";
     }
 
+    //Faz o calculo da conversao para a moeda escolhida
     public void resultado(){
         if(Objects.equals(this.opcaoA, real)){
             this.resultado = this.valotDeEntrada * real();
@@ -36,6 +37,7 @@ public class Moedas {
         System.out.format(new Locale("pt", "BR"), "%.3f", this.resultado); //Aplicando a foamtacao
     }
 
+    //Dados da cotacao do real para cada moeda escolhida
     public double real(){
         if(Objects.equals(this.opcaoB, this.real)){
             return 1; //real para real
@@ -50,6 +52,7 @@ public class Moedas {
         return 0;
     }
 
+    //Dados da cotacao do euro para cada moeda escolhida
     public double euro(){
         if(Objects.equals(this.opcaoB, this.real)){
             return 6.34; //euro para real
@@ -64,6 +67,7 @@ public class Moedas {
         return 0;
     }
 
+    //Dados da cotacao do dolar para cada moeda escolhida
     public double dolar(){
         if(Objects.equals(this.opcaoB, this.real)){
             return 5.57; //dolar para real
@@ -78,6 +82,7 @@ public class Moedas {
         return 0;
     }
 
+    //Dados da cotacao do iene para cada moeda escolhida
     public double iene(){
         if(Objects.equals(this.opcaoB, this.real)){
             return 0.048; //iene para real
@@ -105,9 +110,6 @@ public class Moedas {
     }
 
     public void setOpcaoA(String opcaoA) {
-//        if(this.opcaoA != real || this.opcaoA != euro || this.opcaoA != dolar || this.opcaoA != iene){
-//            throw new NullPointerException("nome invalido");
-//        }
         this.opcaoA = opcaoA;
     }
 
@@ -115,10 +117,12 @@ public class Moedas {
         this.opcaoB = opcaoB;
     }
 
+    //Converte o valor de entrada de String para double
     public void setValotDeEntrada(String valotDeEntrada) {
         this.valotDeEntrada = Double.parseDouble(valotDeEntrada);
     }
 
+    //Teste para saber se a String e um double valido
     public boolean testLogicoValor(String entrada){
         try{
            double teste = Double.parseDouble(entrada);
