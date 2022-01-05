@@ -12,7 +12,7 @@ public class Moedas {
     private final String dolar;
     private final String iene;
     private double resultado;
-    private double valotDeEntrada;
+    private double valorDeEntrada;
 
     public Moedas() {
         this.real = "real";
@@ -24,13 +24,13 @@ public class Moedas {
     //Faz o calculo da conversao para a moeda escolhida
     public void resultado(){
         if(Objects.equals(this.opcaoA, real)){
-            this.resultado = this.valotDeEntrada * real();
+            this.resultado = this.valorDeEntrada * real();
         } else if(Objects.equals(this.opcaoA, euro)){
-            this.resultado = this.valotDeEntrada * euro();
+            this.resultado = this.valorDeEntrada * euro();
         }else if(Objects.equals(this.opcaoA, dolar)){
-            this.resultado = this.valotDeEntrada * dolar();
+            this.resultado = this.valorDeEntrada * dolar();
         }else if(Objects.equals(this.opcaoA, iene)){
-            this.resultado = this.valotDeEntrada * iene();
+            this.resultado = this.valorDeEntrada * iene();
         }else {
             System.out.println("A opções 'a' está invalida");
         }
@@ -97,8 +97,8 @@ public class Moedas {
         return 0;
     }
 
-    public double getValotDeEntrada() {
-        return valotDeEntrada;
+    public double getValorDeEntrada() {
+        return valorDeEntrada;
     }
 
     public String getOpcaoA() {
@@ -118,8 +118,8 @@ public class Moedas {
     }
 
     //Converte o valor de entrada de String para double
-    public void setValotDeEntrada(String valotDeEntrada) {
-        this.valotDeEntrada = Double.parseDouble(valotDeEntrada);
+    public void setValorDeEntrada(String valorDeEntrada) {
+        this.valorDeEntrada = Double.parseDouble(valorDeEntrada);
     }
 
     //Teste para saber se a String e um double valido

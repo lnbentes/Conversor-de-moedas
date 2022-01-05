@@ -41,12 +41,12 @@ public class Menu {
                 System.out.print("Valor numerico valido: ");
                 valor = entrada.next();
             }while( ! moedas.testLogicoValor(valor));
-            moedas.setValotDeEntrada(valor);
+            moedas.setValorDeEntrada(valor);
 
             System.out.println("####################################################");
 
             //Resultado
-            System.out.print(moedas.getValotDeEntrada() + " " + moedas.getOpcaoA() + " = ");
+            System.out.print(moedas.getValorDeEntrada() + " " + moedas.getOpcaoA() + " = ");
             moedas.resultado();
             System.out.println(" " + moedas.getOpcaoB());
 
