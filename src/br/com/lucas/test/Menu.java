@@ -58,7 +58,7 @@ public class Menu {
             System.out.println("n - não");
             continuar = entrada.next();
 
-        }while(Objects.equals(continuar, "y"));
+        }while(Objects.equals(continuar, "s"));
 
     }
 }

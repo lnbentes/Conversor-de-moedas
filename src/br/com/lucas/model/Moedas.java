@@ -125,7 +125,7 @@ public class Moedas {
     //Teste para saber se a String e um double valido
     public boolean testLogicoValor(String entrada){
         try{
-           double teste = Double.parseDouble(entrada);
+           Double.parseDouble(entrada);
            return true;
         }catch (NumberFormatException e){
             return false;
