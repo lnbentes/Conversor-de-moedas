@@ -1,6 +1,8 @@
 package br.com.lucas.model.Dados;
 
-public class DadosDolar {
+import java.util.ArrayList;
+
+public class AtributosDinheiro {
     String code;
     String codein;
     String name;
@@ -11,7 +13,6 @@ public class DadosDolar {
     double bid;
     double ask;
     String timestamp;
-    String create_date;
 
     public double getHigh() {
         return high;

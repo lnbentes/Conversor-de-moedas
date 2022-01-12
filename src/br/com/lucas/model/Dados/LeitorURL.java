@@ -1,4 +1,4 @@
-package br.com.lucas.model;
+package br.com.lucas.model.Dados;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
