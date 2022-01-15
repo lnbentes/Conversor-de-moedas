@@ -1,10 +1,9 @@
 package br.com.lucas.test;
 
-import br.com.lucas.model.Dados.AtributosDinheiro;
+import br.com.lucas.model.Dados.DadosDoJson;
+import br.com.lucas.model.Dados.DesserializaçãoJson;
 import br.com.lucas.model.Dados.LeitorURL;
 import com.google.gson.Gson;
-
-import java.util.ArrayList;
 
 public class Test {
     public static void main(String[] args) throws Exception {
@@ -20,47 +19,30 @@ public class Test {
         /*
         Testando o isolamento do json
          */
-        char[] quebrandoJson = new char[300];
-        char[] isolarJason = new char[224];
-        int interacoes = 0;
         String json = "";
 
         try{
             LeitorURL leitorURL = new LeitorURL();
-            json = leitorURL.readUrl("https://economia.awesomeapi.com.br/last/BRL-USD");
+            json = leitorURL.readUrl("https://economia.awesomeapi.com.br/last/BRL-USD,BRL-EUR,BRL-JPY,USD-BRL,USD-EUR,USD-JPY,EUR-BRL,EUR-USD,EUR-JPY,JPY-BRL,JPY-USD,JPY-EUR");
 
         }catch (Exception e){
             System.out.println("Nao faz nada dirito, URL errada");
         }
 
         System.out.println(json.length());
-
-        //Quebrando a String num array
-        for(int i = 0; i < json.length(); i++){
-            quebrandoJson[i] = json.charAt(i);
-        }
-
-        // Pegando so a secao quero da Sting
-        for(int i = 10; i < (json.length() - 1); i++){
-            System.out.print(quebrandoJson[i]);
-            isolarJason[interacoes] = quebrandoJson[i];
-            interacoes += 1;
-        }
-
-        System.out.println("");
-        String jsonIsolado = new String(isolarJason);
-        System.out.println(jsonIsolado);
+        System.out.println(json);
 
         try{
             Gson gson = new Gson();
-            AtributosDinheiro real = gson.fromJson(jsonIsolado, AtributosDinheiro.class);
+            DadosDoJson real = gson.fromJson(json, DadosDoJson.class);
 
-            System.out.println(real.getLow());
+            System.out.println(real.getRealEuro());
+            System.out.println(real.getRealDolar());
+            System.out.println(real.getRealIene());
 
         }catch (Exception e){
-            System.out.println("Nao faz nada dirito, String errada");
+            System.out.println("Nao faz nada dirito, String errada: \n" + e);
         }
-
 
     }
 

@@ -1,5 +1,7 @@
 package br.com.lucas.model;
 
+import br.com.lucas.model.Dados.DesserializaçãoJson;
+
 import java.util.Locale;
 import java.util.Objects;
 
@@ -13,16 +15,18 @@ public class Moedas {
     private final String iene;
     private double resultado;
     private double valorDeEntrada;
+    private DesserializaçãoJson moeda;
 
     public Moedas() {
         this.real = "real";
         this.euro = "euro";
         this.dolar = "dolar";
         this.iene = "iene";
+        moeda = new DesserializaçãoJson();
     }
 
     //Faz o calculo da conversao para a moeda escolhida
-    public void resultado(){
+    public void resultado() throws Exception {
         if(Objects.equals(this.opcaoA, real)){
             this.resultado = this.valorDeEntrada * real();
         } else if(Objects.equals(this.opcaoA, euro)){
@@ -38,58 +42,58 @@ public class Moedas {
     }
 
     //Dados da cotacao do real para cada moeda escolhida
-    public double real(){
+    public double real() throws Exception {
         if(Objects.equals(this.opcaoB, this.real)){
             return 1; //real para real
         }else if(Objects.equals(this.opcaoB, this.euro)){
-            return 0.16; //real para euro
+            return moeda.getDados().getRealEuro(); //real para euro
         }else if(Objects.equals(this.opcaoB, this.dolar)){
-            return 0.18; ////real para dolar
+            return moeda.getDados().getRealDolar(); ////real para dolar
         }else if(Objects.equals(this.opcaoB, this.iene)){
-            return 20.66; ////real para iene
+            return moeda.getDados().getRealIene(); ////real para iene
         }
         System.out.println("A opções 'b' está invalida");
         return 0;
     }
 
     //Dados da cotacao do euro para cada moeda escolhida
-    public double euro(){
+    public double euro() throws Exception {
         if(Objects.equals(this.opcaoB, this.real)){
-            return 6.34; //euro para real
+            return moeda.getDados().getEuroReal(); //euro para real
         }else if(Objects.equals(this.opcaoB, this.euro)){
             return 1; //euro para euro
         }else if(Objects.equals(this.opcaoB, this.dolar)){
-            return 1.14; //euro para dolar
+            return moeda.getDados().getEuroDolar(); //euro para dolar
         }else if(Objects.equals(this.opcaoB, this.iene)){
-            return 130.89; //euro para iene
+            return moeda.getDados().getEuroIene(); //euro para iene
         }
         System.out.println("A opções 'b' está invalida");
         return 0;
     }
 
     //Dados da cotacao do dolar para cada moeda escolhida
-    public double dolar(){
+    public double dolar() throws Exception {
         if(Objects.equals(this.opcaoB, this.real)){
-            return 5.57; //dolar para real
+            return moeda.getDados().getDolarReal(); //dolar para real
         }else if(Objects.equals(this.opcaoB, this.euro)){
-            return 0.88; //dolar para euro
+            return moeda.getDados().getDolarEuro(); //dolar para euro
         }else if(Objects.equals(this.opcaoB, this.dolar)){
             return 1; //dolar para dolar
         }else if(Objects.equals(this.opcaoB, this.iene)){
-            return 115.11; //dolar para iene
+            return moeda.getDados().getDolarIene(); //dolar para iene
         }
         System.out.println("A opções 'b' está invalida");
         return 0;
     }
 
     //Dados da cotacao do iene para cada moeda escolhida
-    public double iene(){
+    public double iene() throws Exception {
         if(Objects.equals(this.opcaoB, this.real)){
-            return 0.048; //iene para real
+            return moeda.getDados().getIeneReal(); //iene para real
         }else if(Objects.equals(this.opcaoB, this.euro)){
-            return 0.0076; //iene para euro
+            return moeda.getDados().getIenEuro(); //iene para euro
         }else if(Objects.equals(this.opcaoB, this.dolar)){
-            return 0.0087 ; //iene para dolar
+            return moeda.getDados().getIeneDolar(); //iene para dolar
         }else if(Objects.equals(this.opcaoB, this.iene)){
             return 1; //iene para iene
         }
